@@ -1,56 +1,30 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Us | Profil Mahasiswa</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about" class="active">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
-    </nav>
+@extends('layouts.app')
+@section('content')
+<article class="card max-w-2xl mx-auto">
+ <div class="flex flex-col-reverse sm:flex-row sm:items-center gap-6">
 
-    <div class="container">
-        <h1>Tentang Saya (About Us)</h1>
+        <div class="flex-1">
+            <h1>Tentang Saya</h1>
+            <p class="mt-3 text-slate-600">{{ $bio }}</p>
 
-        <div class="profile-card">
-            <img src="/img/profile.png" alt="Foto Profil {{ $nama }}" width="180">
-            <div class="profile-info">
-                <h3>Biodata Mahasiswa</h3>
-                <table>
-                    <tr>
-                        <td class="label">Nama Lengkap</td>
-                        <td>: <strong>{{ $nama }}</strong></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Jurusan</td>
-                        <td>: {{ $jurusan }}</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Institusi</td>
-                        <td>: {{ $institusi }}</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Email</td>
-                        <td>: {{ $email }}</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Bio</td>
-                        <td>: {{ $bio }}</td>
-                    </tr>
-                </table>
-            </div>
+            <dl class="mt-6 grid grid-cols-[7rem_1fr] gap-y-2 text-sm">
+                <dt class="font-semibold text-slate-500">Nama</dt>
+                <dd>{{ $nama }}</dd>
+
+                <dt class="font-semibold text-slate-500">Jurusan</dt>
+                <dd>{{ $jurusan }}</dd>
+
+                <dt class="font-semibold text-slate-500">Institusi</dt>
+                <dd>{{ $institusi }}</dd>
+
+                <dt class="font-semibold text-slate-500">Email</dt>
+                <dd><a href="mailto:{{ $email }}" class="text-brand hover:underline">{{ $email }}</a></dd>
+            </dl>
         </div>
-    </div>
- <footer>
-        <p>&copy; Web Development</p>
-    </footer>
 
-    <script src="/js/about.js"></script>
-</body>
-</html>
+        <img src="{{ asset('img/rehan.png') }}"
+             alt="Foto {{ $nama }}"
+             class="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl object-cover shadow-md mx-auto sm:mx-0 bg-slate-200">
+    </div>
+</article>
+@endsection
